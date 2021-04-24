@@ -4,5 +4,6 @@ const elements = ingredients.map((ingredient) => {
     return liElement;
 });
 console.log(elements);
-const ulElement = document.querySelector('ul');
-ulElement.append(elements);
+const ulIngredients = document.querySelector('ul');
+ulIngredients.append(...elements);
+
