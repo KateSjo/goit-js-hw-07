@@ -1,14 +1,18 @@
-const input = document.querySelector('#validation-input');
+const inputWord = document.querySelector('#validation-input');
+inputWord.addEventListener('blur', onInputCheck)
 
-input.addEventListener('blur', onInputCheck)
+function onValidationInput() {
+    inputWord.classList.add('valid');
+}
 
-function onInputCheck(event){
-    if(event.currentTarget.value.length === Number(input.dataset.length)) {
-        input.classList.add('valid')
-        input.classList.remove('invalid')
-        return;
-    }
-    input.classList.add('invalid')
-    input.classList.remove('valid')
-    return;
+function onInvalidationInput() {
+    inputWord.classList.toggle('invalid');
+}
+
+function onInputCheck(event) {
+    if (event.currentTarget.value.length === 6) {
+        onValidationInput();
+    };
+    onInvalidationInput();
+    console.log(event.currentTarget.value.length);
 }
